@@ -5,17 +5,35 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Notre identité — Nom du Domaine</title>
   <meta name="description" content="Nom, logo, couleurs et typographies de la nouvelle identité du Nom du Domaine.">
-  <meta name="theme-color" content="#5b1a2b">
+  <meta name="theme-color" content="#3b4a32">
   <meta property="og:title" content="Notre identité — Nom du Domaine">
   <meta property="og:description" content="Nom, logo, couleurs et typographies de la nouvelle identité du Nom du Domaine.">
   <meta property="og:type" content="website">
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Caveat:wght@500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
+  <script>(function(d){d.classList.add("js");try{var r=window.matchMedia&&matchMedia("(prefers-reduced-motion: reduce)").matches,s=navigator.connection&&navigator.connection.saveData;if(!r&&!s&&!sessionStorage.getItem("intro-vue"))d.classList.add("show-intro")}catch(e){}})(document.documentElement);</script>
 </head>
 <body>
+  <div class="intro" aria-hidden="true">
+    <video class="intro__video" muted playsinline preload="auto" data-src="assets/video/intro" data-src-mobile="assets/video/intro-mobile"></video>
+    <div class="intro__shade"></div>
+    <div class="intro__copy">
+      <span class="hand">bienvenue au domaine !</span>
+      <strong>NOM DU DOMAINE</strong>
+      <small>DOMAINE VITICOLE · Mâconnais</small>
+    </div>
+    <div class="intro__age" role="dialog" aria-label="Vérification de l'âge">
+      <p>Ce site présente des boissons alcoolisées. Avez-vous l'âge légal pour en consommer ?</p>
+      <div class="btn-row">
+        <button class="btn btn--light" type="button" data-intro-yes>J'ai 18 ans ou plus</button>
+        <button class="btn btn--outline-light" type="button" data-intro-no>J'ai moins de 18 ans</button>
+      </div>
+    </div>
+    <button class="intro__skip" type="button">Passer l'intro</button>
+  </div>
   <a class="skip-link" href="#contenu">Aller au contenu</a>
 
   <header class="site-header">
@@ -30,12 +48,15 @@
 
   <main id="contenu">
     <section class="page-hero">
-      <div class="hero__art"><svg viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><defs><linearGradient id="sky-ph" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#d98a6a"/><stop offset=".75" stop-color="#f4c58f"/></linearGradient></defs><rect width="1440" height="900" fill="url(#sky-ph)"/><circle cx="1080" cy="250" r="90" fill="#f4c58f" opacity=".9"/><path d="M0 420 C180 360 330 330 520 380 S860 300 1040 340 1320 300 1440 330 V900 H0Z" fill="#8c3b45" opacity=".75"/><path d="M0 500 C200 440 380 470 560 450 S900 390 1120 440 1360 420 1440 430 V900 H0Z" fill="#5b1a2b"/><path d="M0 590 C240 540 470 600 700 560 S1120 520 1440 560 V900 H0Z" fill="#3e101c"/><path d="M500 560 L-700 900" stroke="#2a0a13" stroke-width="7" opacity=".55" stroke-linecap="round" stroke-dasharray="2 22"/><path d="M630 560 L-440 900" stroke="#2a0a13" stroke-width="7" opacity=".55" stroke-linecap="round" stroke-dasharray="2 22"/><path d="M760 560 L-180 900" stroke="#2a0a13" stroke-width="7" opacity=".55" stroke-linecap="round" stroke-dasharray="2 22"/><path d="M890 560 L80 900" stroke="#2a0a13" stroke-width="7" opacity=".55" stroke-linecap="round" stroke-dasharray="2 22"/><path d="M1020 560 L340 900" stroke="#2a0a13" stroke-width="7" opacity=".55" stroke-linecap="round" stroke-dasharray="2 22"/><path d="M1150 560 L600 900" stroke="#2a0a13" stroke-width="7" opacity=".55" stroke-linecap="round" stroke-dasharray="2 22"/><path d="M1280 560 L860 900" stroke="#2a0a13" stroke-width="7" opacity=".55" stroke-linecap="round" stroke-dasharray="2 22"/><path d="M1410 560 L1120 900" stroke="#2a0a13" stroke-width="7" opacity=".55" stroke-linecap="round" stroke-dasharray="2 22"/><path d="M1540 560 L1380 900" stroke="#2a0a13" stroke-width="7" opacity=".55" stroke-linecap="round" stroke-dasharray="2 22"/><path d="M1670 560 L1640 900" stroke="#2a0a13" stroke-width="7" opacity=".55" stroke-linecap="round" stroke-dasharray="2 22"/><path d="M1800 560 L1900 900" stroke="#2a0a13" stroke-width="7" opacity=".55" stroke-linecap="round" stroke-dasharray="2 22"/><path d="M1930 560 L2160 900" stroke="#2a0a13" stroke-width="7" opacity=".55" stroke-linecap="round" stroke-dasharray="2 22"/><path d="M2060 560 L2420 900" stroke="#2a0a13" stroke-width="7" opacity=".55" stroke-linecap="round" stroke-dasharray="2 22"/><path d="M2190 560 L2680 900" stroke="#2a0a13" stroke-width="7" opacity=".55" stroke-linecap="round" stroke-dasharray="2 22"/><path d="M0 760 C300 720 640 780 980 740 S1320 730 1440 740 V900 H0Z" fill="#2a0a13"/></svg></div>
-      <div class="container">
-        <p class="breadcrumb"><a href="index.html">Accueil</a> / Notre identité</p>
-        <span class="eyebrow">Identité</span>
-        <h1>Notre nouvelle identité</h1>
-        <p>Une proposition de marque à ajuster ensemble : nom, logo, couleurs et typographies.</p>
+      <div class="blob"></div>
+      <div class="container page-hero__grid page-hero__grid--solo">
+        <div>
+          <p class="breadcrumb"><a href="index.html">Accueil</a> / Notre identité</p>
+          <span class="eyebrow">Identité</span>
+          <h1>Notre nouvelle identité</h1>
+          <p>Une proposition de marque à ajuster ensemble : nom, logo, couleurs et typographies.</p>
+        </div>
+        
       </div>
     </section>
 
@@ -69,7 +90,7 @@
     <section class="section">
       <div class="container">
         <div class="section-head"><span class="eyebrow">Palette</span><h2>Couleurs</h2></div>
-        <div class="swatches"><div class="swatch"><div style="background:#5B1A2B"></div><p><strong>Lie-de-vin</strong>#5B1A2B · Couleur principale</p></div><div class="swatch"><div style="background:#3E101C"></div><p><strong>Bordeaux profond</strong>#3E101C · Fonds, survols</p></div><div class="swatch"><div style="background:#9A7B4F"></div><p><strong>Or patiné</strong>#9A7B4F · Accents, titres secondaires</p></div><div class="swatch"><div style="background:#6F7D5C"></div><p><strong>Vert vigne</strong>#6F7D5C · Engagements, nature</p></div><div class="swatch"><div style="background:#F7F2EA"></div><p><strong>Crème</strong>#F7F2EA · Fonds de section</p></div><div class="swatch"><div style="background:#1F1B18"></div><p><strong>Encre</strong>#1F1B18 · Texte, pied de page</p></div></div>
+        <div class="swatches"><div class="swatch"><div style="background:#B0573A"></div><p><strong>Tuile romane</strong>#B0573A · Boutons, liens, accents</p></div><div class="swatch"><div style="background:#3B4A32"></div><p><strong>Vert vigne</strong>#3B4A32 · Titres, fonds foncés</p></div><div class="swatch"><div style="background:#A8843C"></div><p><strong>Or chardonnay</strong>#A8843C · Détails, sur-titres</p></div><div class="swatch"><div style="background:#EFE5D2"></div><p><strong>Pierre de Solutré</strong>#EFE5D2 · Fonds de section</p></div><div class="swatch"><div style="background:#F8F3EA"></div><p><strong>Calcaire clair</strong>#F8F3EA · Fond principal</p></div><div class="swatch"><div style="background:#2D2A24"></div><p><strong>Encre</strong>#2D2A24 · Texte</p></div></div>
       </div>
     </section>
 
@@ -77,12 +98,13 @@
       <div class="container split">
         <div>
           <span class="eyebrow">Typographies</span>
-          <h2>Cormorant Garamond &amp; Inter</h2>
-          <p>Une serif élégante pour les titres, qui évoque l'étiquette et la tradition, associée à une sans-serif moderne et très lisible pour les textes.</p>
+          <h2>Fraunces, Inter &amp; Caveat</h2>
+          <p>Fraunces, une serif chaleureuse et généreuse pour les titres ; Inter, moderne et très lisible pour les textes ; et Caveat, une écriture manuscrite pour quelques touches personnelles, comme un mot laissé à la main.</p>
         </div>
         <div>
           <p style="font:500 3.4rem/1.1 var(--serif);margin-bottom:.2em">Aa Bb Cc</p>
-          <p style="font:italic 400 1.6rem/1.3 var(--serif);color:var(--ink-soft)">Des vins de terroir, faits à la main</p>
+          <p style="font:italic 400 1.6rem/1.3 var(--serif);color:var(--sage)">Des vins de terroir, faits à la main</p>
+          <p class="hand" style="margin:0 0 1rem">bienvenue au domaine !</p>
           <p style="font:500 1.1rem/1.6 var(--sans)">Inter — Texte courant, menus et boutons.</p>
         </div>
       </div>

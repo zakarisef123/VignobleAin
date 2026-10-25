@@ -5,17 +5,35 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Contact — Nom du Domaine</title>
   <meta name="description" content="Contactez le Nom du Domaine, dans le Mâconnais (Saône-et-Loire) : commandes, visites et dégustations sur rendez-vous.">
-  <meta name="theme-color" content="#5b1a2b">
+  <meta name="theme-color" content="#3b4a32">
   <meta property="og:title" content="Contact — Nom du Domaine">
   <meta property="og:description" content="Contactez le Nom du Domaine, dans le Mâconnais (Saône-et-Loire) : commandes, visites et dégustations sur rendez-vous.">
   <meta property="og:type" content="website">
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Caveat:wght@500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
+  <script>(function(d){d.classList.add("js");try{var r=window.matchMedia&&matchMedia("(prefers-reduced-motion: reduce)").matches,s=navigator.connection&&navigator.connection.saveData;if(!r&&!s&&!sessionStorage.getItem("intro-vue"))d.classList.add("show-intro")}catch(e){}})(document.documentElement);</script>
 </head>
 <body>
+  <div class="intro" aria-hidden="true">
+    <video class="intro__video" muted playsinline preload="auto" data-src="assets/video/intro" data-src-mobile="assets/video/intro-mobile"></video>
+    <div class="intro__shade"></div>
+    <div class="intro__copy">
+      <span class="hand">bienvenue au domaine !</span>
+      <strong>NOM DU DOMAINE</strong>
+      <small>DOMAINE VITICOLE · Mâconnais</small>
+    </div>
+    <div class="intro__age" role="dialog" aria-label="Vérification de l'âge">
+      <p>Ce site présente des boissons alcoolisées. Avez-vous l'âge légal pour en consommer ?</p>
+      <div class="btn-row">
+        <button class="btn btn--light" type="button" data-intro-yes>J'ai 18 ans ou plus</button>
+        <button class="btn btn--outline-light" type="button" data-intro-no>J'ai moins de 18 ans</button>
+      </div>
+    </div>
+    <button class="intro__skip" type="button">Passer l'intro</button>
+  </div>
   <a class="skip-link" href="#contenu">Aller au contenu</a>
 
   <header class="site-header">
@@ -30,12 +48,15 @@
 
   <main id="contenu">
     <section class="page-hero">
-      <div class="hero__art hero__art--photo"><img src="assets/img/grappes-mains.jpg" alt="" style="object-position:center"></div>
-      <div class="container">
-        <p class="breadcrumb"><a href="index.html">Accueil</a> / Contact</p>
-        <span class="eyebrow">Contact</span>
-        <h1>Parlons vin</h1>
-        <p>Une question, une commande, une visite ? Nous vous répondons avec plaisir.</p>
+      <div class="blob"></div>
+      <div class="container page-hero__grid">
+        <div>
+          <p class="breadcrumb"><a href="index.html">Accueil</a> / Contact</p>
+          <span class="eyebrow">Contact</span>
+          <h1>Parlons vin</h1>
+          <p>Une question, une commande, une visite ? Nous vous répondons avec plaisir.</p>
+        </div>
+        <div class="visual"><img src="assets/img/grappes-mains.jpg" alt="" style="object-position:center"></div>
       </div>
     </section>
 

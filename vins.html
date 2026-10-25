@@ -5,17 +5,35 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Nos vins — Nom du Domaine</title>
   <meta name="description" content="Découvrez les cuvées du Nom du Domaine : blancs, rouges, rosé et effervescents du Mâconnais, en vente directe.">
-  <meta name="theme-color" content="#5b1a2b">
+  <meta name="theme-color" content="#3b4a32">
   <meta property="og:title" content="Nos vins — Nom du Domaine">
   <meta property="og:description" content="Découvrez les cuvées du Nom du Domaine : blancs, rouges, rosé et effervescents du Mâconnais, en vente directe.">
   <meta property="og:type" content="website">
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Caveat:wght@500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
+  <script>(function(d){d.classList.add("js");try{var r=window.matchMedia&&matchMedia("(prefers-reduced-motion: reduce)").matches,s=navigator.connection&&navigator.connection.saveData;if(!r&&!s&&!sessionStorage.getItem("intro-vue"))d.classList.add("show-intro")}catch(e){}})(document.documentElement);</script>
 </head>
 <body>
+  <div class="intro" aria-hidden="true">
+    <video class="intro__video" muted playsinline preload="auto" data-src="assets/video/intro" data-src-mobile="assets/video/intro-mobile"></video>
+    <div class="intro__shade"></div>
+    <div class="intro__copy">
+      <span class="hand">bienvenue au domaine !</span>
+      <strong>NOM DU DOMAINE</strong>
+      <small>DOMAINE VITICOLE · Mâconnais</small>
+    </div>
+    <div class="intro__age" role="dialog" aria-label="Vérification de l'âge">
+      <p>Ce site présente des boissons alcoolisées. Avez-vous l'âge légal pour en consommer ?</p>
+      <div class="btn-row">
+        <button class="btn btn--light" type="button" data-intro-yes>J'ai 18 ans ou plus</button>
+        <button class="btn btn--outline-light" type="button" data-intro-no>J'ai moins de 18 ans</button>
+      </div>
+    </div>
+    <button class="intro__skip" type="button">Passer l'intro</button>
+  </div>
   <a class="skip-link" href="#contenu">Aller au contenu</a>
 
   <header class="site-header">
@@ -30,12 +48,15 @@
 
   <main id="contenu">
     <section class="page-hero">
-      <div class="hero__art hero__art--photo"><img src="assets/img/vignoble-coucher-soleil.jpg" alt="" style="object-position:center"></div>
-      <div class="container">
-        <p class="breadcrumb"><a href="index.html">Accueil</a> / Nos vins</p>
-        <span class="eyebrow">La cave</span>
-        <h1>Nos vins</h1>
-        <p>Une petite gamme de cuvées de terroir, disponibles à la vente directe au domaine.</p>
+      <div class="blob"></div>
+      <div class="container page-hero__grid">
+        <div>
+          <p class="breadcrumb"><a href="index.html">Accueil</a> / Nos vins</p>
+          <span class="eyebrow">La cave</span>
+          <h1>Nos vins</h1>
+          <p>Une petite gamme de cuvées de terroir, disponibles à la vente directe au domaine.</p>
+        </div>
+        <div class="visual"><img src="assets/img/vignoble-coucher-soleil.jpg" alt="" style="object-position:center"></div>
       </div>
     </section>
 
@@ -129,6 +150,7 @@
         <div class="cta reveal">
           <div class="cta__mark"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="32" cy="32" r="30" stroke-width="1.6"/><path d="M32 9.5c0 3 .8 5 2.6 6.4" stroke-width="1.6"/><path d="M34.6 15.9c2.4-2.9 6.2-3.3 8.4-2-1.2 2.6-4.6 4.2-8.4 2Z" fill="currentColor" stroke-width="1.2"/><g fill="currentColor" stroke="none"><circle cx="28.4" cy="19.6" r="2.6"/><circle cx="34" cy="19.6" r="2.6"/><circle cx="25.6" cy="24.4" r="2.6"/><circle cx="31.2" cy="24.4" r="2.6"/><circle cx="36.8" cy="24.4" r="2.6"/><circle cx="28.4" cy="29.2" r="2.6"/><circle cx="34" cy="29.2" r="2.6"/><circle cx="31.2" cy="34" r="2.6"/></g><path d="M6.5 42c6-4.6 12.5-6.2 19.5-3.2 6.4 2.8 12.3 1.4 18-2.6 4.2-2.9 9-3.6 13.6-2.2" stroke-width="1.6"/><path d="M8.6 48.6c6.6-3.4 13.2-4 20-1.4 6.6 2.5 13.6 1.6 19.6-1.6 3.4-1.8 6.6-2.4 9.8-2" stroke-width="1.6"/><path d="M13.4 54.6c5.8-2.2 11.6-2.4 17.6-.6 5.8 1.7 11.8 1.2 17.6-1.2" stroke-width="1.6"/></svg></div>
           <div>
+            <span class="hand">à très vite !</span>
             <h2>Une envie de commander ?</h2>
             <p>Appelez-nous ou écrivez-nous : nous vous répondons rapidement.</p>
           </div>

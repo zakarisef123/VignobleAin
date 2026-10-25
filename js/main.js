@@ -10,9 +10,75 @@
     try { window.localStorage.setItem(key, value); } catch (e) { /* stockage indisponible */ }
   }
 
+  var root = document.documentElement;
+  var intro = document.querySelector(".intro");
+  var introOn = !!intro && root.classList.contains("show-intro");
+
+  // Intro vidéo : la vérification d'âge se fait à la fin de l'intro
+  if (introOn) {
+    try { window.sessionStorage.setItem("intro-vue", "1"); } catch (e) { /* stockage indisponible */ }
+    var video = intro.querySelector(".intro__video");
+    var portrait = window.innerWidth < window.innerHeight;
+    var base = video.getAttribute(portrait ? "data-src-mobile" : "data-src");
+    var mp4 = video.canPlayType('video/mp4; codecs="avc1.42E01E"') === "probably";
+    video.poster = base + ".jpg";
+    video.src = base + (mp4 || !video.canPlayType("video/webm") ? ".mp4" : ".webm");
+    var done = false;
+    var titled = false;
+
+    function showTitle() {
+      if (titled) return;
+      titled = true;
+      intro.classList.add("intro--title");
+    }
+    function revealSite() {
+      intro.classList.remove("intro--age");
+      intro.classList.add("is-leaving");
+      setTimeout(function () {
+        root.classList.remove("show-intro");
+        video.pause();
+        video.removeAttribute("src");
+        video.load();
+        document.dispatchEvent(new Event("intro:done"));
+      }, 1200);
+    }
+    function finishIntro() {
+      if (done) return;
+      done = true;
+      var wait = titled ? 700 : 1600;
+      showTitle();
+      if (storageGet(AGE_KEY) === "1") { setTimeout(revealSite, wait); return; }
+      intro.classList.add("intro--age");
+      intro.querySelector("[data-intro-yes]").focus({ preventScroll: true });
+    }
+
+    video.addEventListener("timeupdate", function () {
+      if (video.duration && video.currentTime > video.duration - 2.6) showTitle();
+    });
+    video.addEventListener("ended", finishIntro);
+    video.addEventListener("error", finishIntro);
+    // Lecture automatique bloquée ou connexion trop lente : on passe au titre
+    var playing = video.play();
+    if (playing && playing.catch) playing.catch(finishIntro);
+    setTimeout(function () { if (video.currentTime === 0) finishIntro(); }, 3000);
+    setTimeout(finishIntro, 12000);
+
+    intro.querySelector(".intro__skip").addEventListener("click", function () {
+      video.pause();
+      finishIntro();
+    });
+    intro.querySelector("[data-intro-yes]").addEventListener("click", function () {
+      storageSet(AGE_KEY, "1");
+      revealSite();
+    });
+    intro.querySelector("[data-intro-no]").addEventListener("click", function () {
+      window.location.href = "https://www.google.fr";
+    });
+  }
+
   // Vérification d'âge (obligatoire pour un site de vente d'alcool)
   var gate = document.querySelector(".age-gate");
-  if (gate && storageGet(AGE_KEY) !== "1") {
+  if (gate && !introOn && storageGet(AGE_KEY) !== "1") {
     gate.classList.add("is-open");
     gate.querySelector("[data-age-yes]").addEventListener("click", function () {
       storageSet(AGE_KEY, "1");
@@ -45,6 +111,26 @@
       });
     });
   }
+
+  // Effet « lever de rideau » sur les photos, lancé après l'intro
+  function watchCurtains() {
+    var curtains = document.querySelectorAll(".visual, .gallery figure");
+    if (!("IntersectionObserver" in window)) {
+      curtains.forEach(function (el) { el.classList.add("is-in"); });
+      return;
+    }
+    var co = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("is-in");
+          co.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.25 });
+    curtains.forEach(function (el) { co.observe(el); });
+  }
+  if (introOn) document.addEventListener("intro:done", watchCurtains, { once: true });
+  else watchCurtains();
 
   // Apparition au défilement
   var reveals = document.querySelectorAll(".reveal");
