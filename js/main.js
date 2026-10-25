@@ -14,38 +14,59 @@
   var intro = document.querySelector(".intro");
   var introOn = !!intro && root.classList.contains("show-intro");
 
-  // Animation d'ouverture : la vérification d'âge se fait à la fin de l'intro
+  // Intro vidéo : la vérification d'âge se fait à la fin de l'intro
   if (introOn) {
     try { window.sessionStorage.setItem("intro-vue", "1"); } catch (e) { /* stockage indisponible */ }
-    var scene = intro.querySelector(".intro__scene");
-    if (window.innerWidth < window.innerHeight) scene.setAttribute("viewBox", "370 90 820 790");
+    var video = intro.querySelector(".intro__video");
+    var portrait = window.innerWidth < window.innerHeight;
+    var base = video.getAttribute(portrait ? "data-src-mobile" : "data-src");
+    var mp4 = video.canPlayType('video/mp4; codecs="avc1.42E01E"') === "probably";
+    video.poster = base + ".jpg";
+    video.src = base + (mp4 || !video.canPlayType("video/webm") ? ".mp4" : ".webm");
     var done = false;
-    var timer = setTimeout(finishIntro, 6900);
+    var titled = false;
 
+    function showTitle() {
+      if (titled) return;
+      titled = true;
+      intro.classList.add("intro--title");
+    }
     function revealSite() {
-      var glass = intro.querySelector(".ib-glass").getBoundingClientRect();
-      intro.style.setProperty("--rx", (glass.left + glass.width / 2) + "px");
-      intro.style.setProperty("--ry", (glass.top + glass.height / 2) + "px");
       intro.classList.remove("intro--age");
-      intro.classList.add("is-revealing");
+      intro.classList.add("is-leaving");
       setTimeout(function () {
         root.classList.remove("show-intro");
+        video.pause();
+        video.removeAttribute("src");
+        video.load();
         document.dispatchEvent(new Event("intro:done"));
-      }, 1250);
+      }, 1200);
     }
     function finishIntro() {
       if (done) return;
       done = true;
-      clearTimeout(timer);
-      // « Passer » : on saute directement au tableau final
-      intro.getAnimations({ subtree: true }).forEach(function (anim) {
-        if (isFinite(anim.effect.getComputedTiming().endTime)) anim.finish();
-      });
-      if (storageGet(AGE_KEY) === "1") { revealSite(); return; }
+      var wait = titled ? 700 : 1600;
+      showTitle();
+      if (storageGet(AGE_KEY) === "1") { setTimeout(revealSite, wait); return; }
       intro.classList.add("intro--age");
       intro.querySelector("[data-intro-yes]").focus({ preventScroll: true });
     }
-    intro.querySelector(".intro__skip").addEventListener("click", finishIntro);
+
+    video.addEventListener("timeupdate", function () {
+      if (video.duration && video.currentTime > video.duration - 2.6) showTitle();
+    });
+    video.addEventListener("ended", finishIntro);
+    video.addEventListener("error", finishIntro);
+    // Lecture automatique bloquée ou connexion trop lente : on passe au titre
+    var playing = video.play();
+    if (playing && playing.catch) playing.catch(finishIntro);
+    setTimeout(function () { if (video.currentTime === 0) finishIntro(); }, 3000);
+    setTimeout(finishIntro, 12000);
+
+    intro.querySelector(".intro__skip").addEventListener("click", function () {
+      video.pause();
+      finishIntro();
+    });
     intro.querySelector("[data-intro-yes]").addEventListener("click", function () {
       storageSet(AGE_KEY, "1");
       revealSite();
