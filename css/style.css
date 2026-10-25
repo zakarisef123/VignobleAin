@@ -503,3 +503,38 @@ p { margin: 0 0 1.1em; }
 .skip-link { position: absolute; left: -999px; top: 0; z-index: 300; background: var(--wine); color: #fff; padding: 10px 16px; }
 .skip-link:focus { left: 16px; top: 16px; }
 :focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; }
+
+/* ---------- Activités ---------- */
+.activity {
+  display: flex; flex-direction: column;
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 28px 26px 24px;
+  transition: transform .3s, box-shadow .3s, border-color .3s;
+}
+.activity:hover { transform: translateY(-4px); box-shadow: var(--shadow); border-color: transparent; }
+.activity[hidden] { display: none; }
+.activity__top { display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; margin-bottom: 18px; }
+.activity__top .card__icon { margin: 0; }
+.activity__tag { font-size: .7rem; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: var(--wine); background: var(--cream); padding: 6px 12px; border-radius: 999px; }
+.activity h3 { font-size: 1.5rem; margin-bottom: .35em; }
+.activity p { color: var(--ink-soft); font-size: .95rem; margin-bottom: 18px; }
+.activity__meta { list-style: none; padding: 0; margin: 0 0 18px; display: grid; gap: 8px; font-size: .85rem; color: var(--ink-soft); }
+.activity__meta li { display: flex; align-items: center; gap: 10px; }
+.activity__meta svg { width: 16px; height: 16px; color: var(--gold); flex: none; }
+.activity__foot { margin-top: auto; padding-top: 16px; border-top: 1px solid var(--line); display: flex; justify-content: space-between; align-items: center; gap: 12px; font-size: .88rem; }
+.activity__foot a { font-weight: 600; text-decoration: none; white-space: nowrap; }
+.activity__price { font: 500 1.25rem/1.2 var(--serif); color: var(--wine); }
+
+.season { background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.16); border-radius: var(--radius); padding: 30px 26px; }
+.season__months { font-size: .72rem; letter-spacing: .2em; text-transform: uppercase; color: var(--gold-light); font-weight: 600; }
+.season h3 { font-size: 2rem; margin: .2em 0 .3em; }
+.section--wine .season p { font-size: .95rem; color: rgba(255,255,255,.75); }
+.season ul { list-style: none; padding: 0; margin: 0; }
+.season li { padding: 9px 0; border-top: 1px solid rgba(255,255,255,.14); font-size: .92rem; }
+
+.mini-list { list-style: none; padding: 0; margin: 8px 0 30px; display: grid; gap: 4px; }
+.mini-list li { display: flex; align-items: center; gap: 14px; padding: 10px 0; border-bottom: 1px solid var(--line); font-size: .92rem; color: var(--ink-soft); }
+.mini-list svg { width: 22px; height: 22px; color: var(--wine); flex: none; }
+.mini-list strong { display: block; color: var(--ink); font-weight: 600; }

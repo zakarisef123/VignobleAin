@@ -6,7 +6,7 @@ Site statique multipage (HTML/CSS/JS, sans dépendance ni build). Ouvrir `index.
 - `index.html` — Accueil
 - `domaine.html` — Histoire, terroir, engagements
 - `vins.html` — Gamme (filtrable)
-- `oenotourisme.html` — Visites, formules, FAQ
+- `activites.html` — Visites, dégustations, catalogue de 31 activités (filtrable), calendrier des saisons, bon cadeau, FAQ
 - `actualites.html` — Actualités
 - `galerie.html` — Galerie avec visionneuse
 - `contact.html` — Coordonnées, formulaire, carte

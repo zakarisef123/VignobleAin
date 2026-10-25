@@ -67,9 +67,9 @@
   filters.forEach(function (btn) {
     btn.addEventListener("click", function () {
       var type = btn.getAttribute("data-filter");
-      filters.forEach(function (b) { b.classList.toggle("is-active", b === btn); });
-      document.querySelectorAll(".wine[data-type]").forEach(function (wine) {
-        wine.hidden = type !== "all" && wine.getAttribute("data-type") !== type;
+      btn.parentNode.querySelectorAll(".filter").forEach(function (b) { b.classList.toggle("is-active", b === btn); });
+      btn.closest(".container").querySelectorAll("[data-type]").forEach(function (item) {
+        item.hidden = type !== "all" && item.getAttribute("data-type") !== type;
       });
     });
   });
@@ -97,6 +97,18 @@
   // Formulaire de contact : ouvre la messagerie avec le message prérempli
   var form = document.querySelector("#contact-form");
   if (form) {
+    // Préremplissage depuis les liens « Réserver » et « Commander »
+    var params = new URLSearchParams(window.location.search);
+    var activite = params.get("activite");
+    var sujet = form.querySelector("#sujet");
+    var message = form.querySelector("#message");
+    if (activite) {
+      sujet.value = activite === "Bon cadeau" ? "Bon cadeau" : "Réserver une activité";
+      message.value = "Activité souhaitée : " + activite + "\nDate(s) souhaitée(s) : \nNombre de personnes : \n";
+    } else if (params.get("sujet") === "commande") {
+      sujet.value = "Commander du vin";
+    }
+
     form.addEventListener("submit", function (e) {
       e.preventDefault();
       var data = new FormData(form);
