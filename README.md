@@ -22,7 +22,7 @@ Site statique multipage (HTML/CSS/JS, sans dépendance ni build). Ouvrir `index.
 
 ## Style & animations
 - Style « Terroir vivant » aux couleurs du Mâconnais : palette définie dans `:root` de `css/style.css` (tuile romane, vert vigne, or chardonnay, pierre de Solutré). Polices : Fraunces, Inter, Caveat.
-- Intro vidéo plein écran (images réelles), jouée une fois par session ; le titre apparaît sur le dernier plan, puis la vérification d'âge. Bouton « Passer l'intro ». Désactivée si le visiteur préfère réduire les animations ou économise ses données.
+- Intro vidéo plein écran en rendu 3D photoréaliste (le fût remplit la bouteille, la bouteille sert le verre devant un plateau de fromages du Mâconnais), jouée une fois par session ; le titre apparaît sur le dernier plan, puis la vérification d'âge. Bouton « Passer l'intro ». Désactivée si le visiteur préfère réduire les animations ou économise ses données.
 - Effet « lever de rideau » sur les photos au défilement.
 
 ## Remplacer la vidéo d'intro
