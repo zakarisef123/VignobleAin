@@ -175,7 +175,7 @@ p { margin: 0 0 1.1em; }
   background: var(--wine-dark);
 }
 .hero__art { position: absolute; inset: 0; width: 100%; height: 100%; }
-.hero__art svg { width: 100%; height: 100%; }
+.hero__art svg, .hero__art img { width: 100%; height: 100%; object-fit: cover; }
 .hero::after {
   content: ""; position: absolute; inset: 0;
   background: linear-gradient(90deg, rgba(30, 8, 14, .78) 0%, rgba(30, 8, 14, .35) 60%, rgba(30, 8, 14, .1) 100%);
@@ -203,6 +203,7 @@ p { margin: 0 0 1.1em; }
   padding: clamp(80px, 12vw, 140px) 0 clamp(60px, 9vw, 100px);
 }
 .page-hero .hero__art { opacity: .55; }
+.page-hero .hero__art--photo { opacity: .45; }
 .page-hero .container { position: relative; z-index: 1; }
 .page-hero h1 { color: #fff; margin-bottom: .3em; }
 .page-hero .eyebrow { color: var(--gold-light); }
@@ -372,8 +373,8 @@ p { margin: 0 0 1.1em; }
   background: rgba(20, 12, 14, .92);
 }
 .lightbox.is-open { display: grid; }
-.lightbox__inner { width: min(100%, 1000px); aspect-ratio: 16/10; border-radius: var(--radius); overflow: hidden; }
-.lightbox__inner > * { width: 100%; height: 100%; object-fit: cover; }
+.lightbox__inner { display: grid; place-items: center; }
+.lightbox__inner > * { max-width: min(100%, 1100px); max-height: 86vh; width: auto; height: auto; border-radius: var(--radius); }
 .lightbox__close { position: absolute; top: 18px; right: 18px; width: 48px; height: 48px; border-radius: 50%; border: 1px solid rgba(255,255,255,.4); background: transparent; color: #fff; font-size: 1.6rem; cursor: pointer; }
 
 /* Offres d'œnotourisme */
