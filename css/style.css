@@ -1,5 +1,5 @@
 /* ==========================================================================
-   Domaine des Contreforts — feuille de style principale
+   Site du domaine — feuille de style principale
    ========================================================================== */
 
 :root {
@@ -538,3 +538,8 @@ p { margin: 0 0 1.1em; }
 .mini-list li { display: flex; align-items: center; gap: 14px; padding: 10px 0; border-bottom: 1px solid var(--line); font-size: .92rem; color: var(--ink-soft); }
 .mini-list svg { width: 22px; height: 22px; color: var(--wine); flex: none; }
 .mini-list strong { display: block; color: var(--ink); font-weight: 600; }
+
+@media (max-width: 440px) {
+  .site-header .brand-text strong { font-size: 1.15rem; letter-spacing: .06em; white-space: nowrap; }
+  .site-header .brand svg { width: 40px; height: 40px; }
+}

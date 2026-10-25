@@ -1,4 +1,4 @@
-# Domaine des Contreforts — site vitrine
+# Site du domaine viticole — site vitrine
 
 Site statique multipage (HTML/CSS/JS, sans dépendance ni build). Ouvrir `index.html` dans un navigateur, ou déployer le dossier tel quel (Netlify, GitHub Pages, OVH…).
 
@@ -14,7 +14,8 @@ Site statique multipage (HTML/CSS/JS, sans dépendance ni build). Ouvrir `index.
 - `marque.html` — Proposition d'identité (logo, couleurs, typos)
 
 ## À compléter
-- Téléphone, e-mail, SIRET, hébergeur (valeurs provisoires `06 00 00 00 00`, `contact@domaine-contreforts.fr`).
+- **Nom du domaine** : provisoire, « Nom du Domaine » / « NOM DU DOMAINE » partout (pages, `assets/logo.svg`, étiquettes). Remplacer par le nom définitif.
+- Téléphone, e-mail, SIRET, hébergeur (valeurs provisoires `06 00 00 00 00`, `contact@nomdudomaine.fr`).
 - Noms, cépages et prix des cuvées (`vins.html`) : exemples à remplacer.
 - Liens Facebook / Instagram (pied de page).
 - Photos : `assets/img/` contient les photos du domaine reprises de l'ancien site (recadrées, sans texte ni logo). Les illustrations SVG restantes (marque, mentions légales) et la galerie peuvent être complétées avec de nouvelles photos.

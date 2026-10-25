@@ -1,7 +1,7 @@
 (function () {
   "use strict";
 
-  var AGE_KEY = "contreforts-age-ok";
+  var AGE_KEY = "domaine-age-ok";
 
   function storageGet(key) {
     try { return window.localStorage.getItem(key); } catch (e) { return null; }
