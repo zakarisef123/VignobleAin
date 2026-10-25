@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" role="img" aria-label="Domaine des Contreforts">
+  <circle cx="32" cy="32" r="30" stroke-width="1.6"/>
+  <path d="M32 9.5c0 3 .8 5 2.6 6.4" stroke-width="1.6"/>
+  <path d="M34.6 15.9c2.4-2.9 6.2-3.3 8.4-2-1.2 2.6-4.6 4.2-8.4 2Z" fill="currentColor" stroke-width="1.2"/>
+  <g fill="currentColor" stroke="none">
+    <circle cx="28.4" cy="19.6" r="2.6"/><circle cx="34" cy="19.6" r="2.6"/>
+    <circle cx="25.6" cy="24.4" r="2.6"/><circle cx="31.2" cy="24.4" r="2.6"/><circle cx="36.8" cy="24.4" r="2.6"/>
+    <circle cx="28.4" cy="29.2" r="2.6"/><circle cx="34" cy="29.2" r="2.6"/>
+    <circle cx="31.2" cy="34" r="2.6"/>
+  </g>
+  <path d="M6.5 42c6-4.6 12.5-6.2 19.5-3.2 6.4 2.8 12.3 1.4 18-2.6 4.2-2.9 9-3.6 13.6-2.2" stroke-width="1.6"/>
+  <path d="M8.6 48.6c6.6-3.4 13.2-4 20-1.4 6.6 2.5 13.6 1.6 19.6-1.6 3.4-1.8 6.6-2.4 9.8-2" stroke-width="1.6"/>
+  <path d="M13.4 54.6c5.8-2.2 11.6-2.4 17.6-.6 5.8 1.7 11.8 1.2 17.6-1.2" stroke-width="1.6"/>
+</svg>
