@@ -10,9 +10,54 @@
     try { window.localStorage.setItem(key, value); } catch (e) { /* stockage indisponible */ }
   }
 
+  var root = document.documentElement;
+  var intro = document.querySelector(".intro");
+  var introOn = !!intro && root.classList.contains("show-intro");
+
+  // Animation d'ouverture : la vérification d'âge se fait à la fin de l'intro
+  if (introOn) {
+    try { window.sessionStorage.setItem("intro-vue", "1"); } catch (e) { /* stockage indisponible */ }
+    var scene = intro.querySelector(".intro__scene");
+    if (window.innerWidth < window.innerHeight) scene.setAttribute("viewBox", "370 90 820 790");
+    var done = false;
+    var timer = setTimeout(finishIntro, 6900);
+
+    function revealSite() {
+      var glass = intro.querySelector(".ib-glass").getBoundingClientRect();
+      intro.style.setProperty("--rx", (glass.left + glass.width / 2) + "px");
+      intro.style.setProperty("--ry", (glass.top + glass.height / 2) + "px");
+      intro.classList.remove("intro--age");
+      intro.classList.add("is-revealing");
+      setTimeout(function () {
+        root.classList.remove("show-intro");
+        document.dispatchEvent(new Event("intro:done"));
+      }, 1250);
+    }
+    function finishIntro() {
+      if (done) return;
+      done = true;
+      clearTimeout(timer);
+      // « Passer » : on saute directement au tableau final
+      intro.getAnimations({ subtree: true }).forEach(function (anim) {
+        if (isFinite(anim.effect.getComputedTiming().endTime)) anim.finish();
+      });
+      if (storageGet(AGE_KEY) === "1") { revealSite(); return; }
+      intro.classList.add("intro--age");
+      intro.querySelector("[data-intro-yes]").focus({ preventScroll: true });
+    }
+    intro.querySelector(".intro__skip").addEventListener("click", finishIntro);
+    intro.querySelector("[data-intro-yes]").addEventListener("click", function () {
+      storageSet(AGE_KEY, "1");
+      revealSite();
+    });
+    intro.querySelector("[data-intro-no]").addEventListener("click", function () {
+      window.location.href = "https://www.google.fr";
+    });
+  }
+
   // Vérification d'âge (obligatoire pour un site de vente d'alcool)
   var gate = document.querySelector(".age-gate");
-  if (gate && storageGet(AGE_KEY) !== "1") {
+  if (gate && !introOn && storageGet(AGE_KEY) !== "1") {
     gate.classList.add("is-open");
     gate.querySelector("[data-age-yes]").addEventListener("click", function () {
       storageSet(AGE_KEY, "1");
@@ -45,6 +90,26 @@
       });
     });
   }
+
+  // Effet « lever de rideau » sur les photos, lancé après l'intro
+  function watchCurtains() {
+    var curtains = document.querySelectorAll(".visual, .gallery figure");
+    if (!("IntersectionObserver" in window)) {
+      curtains.forEach(function (el) { el.classList.add("is-in"); });
+      return;
+    }
+    var co = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("is-in");
+          co.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.25 });
+    curtains.forEach(function (el) { co.observe(el); });
+  }
+  if (introOn) document.addEventListener("intro:done", watchCurtains, { once: true });
+  else watchCurtains();
 
   // Apparition au défilement
   var reveals = document.querySelectorAll(".reveal");

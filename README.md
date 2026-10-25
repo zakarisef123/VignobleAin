@@ -20,6 +20,11 @@ Site statique multipage (HTML/CSS/JS, sans dépendance ni build). Ouvrir `index.
 - Liens Facebook / Instagram (pied de page).
 - Photos : `assets/img/` contient les photos du domaine reprises de l'ancien site (recadrées, sans texte ni logo). Les illustrations SVG restantes (marque, mentions légales) et la galerie peuvent être complétées avec de nouvelles photos.
 
+## Style & animations
+- Style « Terroir vivant » aux couleurs du Mâconnais : palette définie dans `:root` de `css/style.css` (tuile romane, vert vigne, or chardonnay, pierre de Solutré). Polices : Fraunces, Inter, Caveat.
+- Animation d'ouverture (tonneau → bouteille → verre), jouée une fois par session ; la vérification d'âge apparaît à la fin de l'intro. Désactivée si le visiteur préfère réduire les animations.
+- Effet « lever de rideau » sur les photos au défilement.
+
 ## Logo
 - `assets/logo.svg` — logo complet
 - `assets/logo-mark.svg` — symbole seul (couleur héritée via `currentColor`)
